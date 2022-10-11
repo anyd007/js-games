@@ -1,0 +1,45 @@
+@import './config', './main-side', './responsive/large', './responsive/laptops', './responsive/tablets',
+        './responsive/phones';
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Play', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url('../../images/quantum-gradient.svg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+header{
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+}
+h1, h2, h3, h4, p{
+    font-weight: 700;
+}
+label{
+    font-family: 'Play', sans-serif;
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    pointer-events: none;
+    @include smooth;
+
+    &.hide{
+        opacity: 0;
+    }
+}
+input:focus ~ label,
+input:valid ~ label{
+    left: 70%;
+    font-size: 1rem;
+}

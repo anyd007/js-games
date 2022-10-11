@@ -1,0 +1,11 @@
+@import '../config';
+
+@include screen(tablets){
+.main-title{
+    font-size: 4rem;
+}
+
+.main-description{
+    font-size: 1.5rem;
+}
+}

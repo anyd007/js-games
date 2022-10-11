@@ -1,0 +1,48 @@
+@import './config';
+
+.main-title{
+    color: $title-side-font;
+    font-size: 5rem;
+    @include black-text-shadow; 
+};
+
+.main-description{
+    color: black;
+    @include white-text-shadow;
+    font-size: 2rem;
+};
+
+.name-enter{
+    position: relative;
+    padding-top: 2rem;
+
+    &__instruction{
+        color: black;
+        @include white-text-shadow;
+        font-size: 1.3rem;
+    }
+
+    &__input{
+        font-weight: 700;
+        margin: 20px;
+        width: 50%;
+        text-align: center;
+        font-family: 'Play', sans-serif;
+        outline: none;
+        border: none;
+        background: transparent;
+        font-size: 1.3rem;
+        border-bottom: 2px solid $title-side-font;
+        @include smooth;
+
+        &.hide{
+            opacity: 0;
+        }
+
+
+        &:focus{
+            color: $title-side-font;
+            border-bottom: 3px solid black;
+        }
+    }
+}

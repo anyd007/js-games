@@ -1,0 +1,26 @@
+$title-side-font: #DBC328;
+$text-shadow-color: #1F1A3C;
+
+//responsive
+$screen-size:(
+    phones:600px,
+    tablets:768px,
+    laptops:992px,
+    large:1200px
+);
+@mixin screen($name) {
+    @media (max-width: map-get($screen-size, $name)){
+        @content
+    }
+};
+
+//effects
+@mixin smooth {
+    transition: all 0.5s ease-in-out;
+}
+@mixin black-text-shadow {
+    text-shadow: 3px 3px 6px $text-shadow-color;
+}
+@mixin white-text-shadow {
+    text-shadow: 3px 3px 6px #ffffff;
+}
