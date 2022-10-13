@@ -8,4 +8,13 @@
 .main-description{
     font-size: 1.5rem;
 }
+
+//papier kamień nożyce
+.wave{
+    
+    width: 100vw;
+    &::before{
+        width: 200%;
+    }
+}
 }

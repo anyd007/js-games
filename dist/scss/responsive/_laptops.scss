@@ -1,0 +1,11 @@
+@import '../config';
+
+//paiper kamień nożyce
+@include screen(laptops){
+    .wave{
+        width: 65%;
+        &::before{
+            width: 85%;
+        }
+    }
+}
