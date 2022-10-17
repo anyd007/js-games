@@ -1,6 +1,7 @@
 const nameInput = document.querySelector(".name-enter__input")
 const inputLabel = document.querySelector(".name-enter__label")
 const paragraph = document.querySelector(".name-enter__instruction")
+const navMain = document.querySelector(".nav-main")
 const navItem = document.querySelector(".nav-main__item")
 
 
