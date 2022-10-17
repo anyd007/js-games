@@ -162,7 +162,7 @@
   display: grid;
   gap: 1.5rem;
   justify-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 49% 48%;
   grid-template-rows: 25vw auto auto;
 }
 .game .computer {
@@ -249,6 +249,22 @@
   }
   .main-description {
     font-size: 1rem;
+  }
+  .game {
+    padding-top: 5rem;
+    grid-template-rows: 50vw auto auto;
+  }
+  .game .computer .computer-contener__item {
+    width: 50vw;
+  }
+  .game .human .human-contener__item {
+    width: 50vw;
+  }
+  .game .buttons {
+    justify-content: space-around;
+  }
+  .game .buttons__item {
+    width: 20vw;
   }
 }
 * {

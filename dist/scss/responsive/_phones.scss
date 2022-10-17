@@ -8,4 +8,36 @@
     .main-description{
         font-size: 1rem;
     }
+
+    .game{
+        padding-top: 5rem;
+        grid-template-rows: 50vw auto auto;
+
+        .computer{
+
+            .computer-contener{
+
+                &__item{
+                    width: 50vw;
+                }
+            }
+        }
+
+        .human{
+
+            .human-contener{
+
+                &__item{
+                    width: 50vw;
+                }
+            }
+        }
+
+        .buttons{
+            justify-content: space-around;
+            &__item{
+                width: 20vw;
+            }
+        }
+    }
 }

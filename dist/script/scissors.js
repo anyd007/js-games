@@ -39,6 +39,7 @@ const gameStart = (e) => {
           counter = 0;
         }
         compImagesSection.style.transform = `translateY(${counter * -25}vw)`;
+        responsive()
       }, 300);
 
       setTimeout(() => {
@@ -65,6 +66,9 @@ const generateLottery = (compLottery) => {
 const compChoise = (compResult) =>{
  compResultImg.setAttribute("src", compResult)
  compImagesSection.style.transform = `translateY(${-75}vw)`
+ if(window.matchMedia("(max-width: 600px)").matches){
+    compImagesSection.style.transform = `translateY(${-150}vw)`
+}
 }
 
 const humanPalyerImage = (button) =>{
@@ -129,6 +133,12 @@ const resultDisplay = (index, compLottery) =>{
     }
     if(compResult !== 0){
         compResultDisplay.textContent = parseInt(compResult)
+    }
+
+    const responsive = () =>{
+        if(window.matchMedia("(max-width: 600px)").matches){
+            compImagesSection.style.transform = `translateY(${counter * -50}vw)`
+        }
     }
    
 buttonsArea.addEventListener("click", gameStart);
