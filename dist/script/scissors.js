@@ -6,6 +6,8 @@ const humanImage = document.querySelector(".human-contener__item")
 const decritpion = document.querySelector(".main-description")
 const playerResultDisplay = document.querySelector(".human-result__item")
 const compResultDisplay = document.querySelector(".computer-result__item")
+const resultPopup = document.querySelector(".result-popup")
+const resultPopupInfo = document.querySelector(".result-popup__info")
 
 let playerName = localStorage.getItem("playerName")
 let playerResult = localStorage.getItem("playerResult") || 0;
@@ -17,13 +19,12 @@ const images = Array.from(compImages); //tablica ze zdjęć
 let min = 0;
 let max = images.length;
 let counter = 0;
+resultPopupInfo.textContent = ""
 
+//informacja dla użytkownika po podaniu imienia
 decritpion.textContent = `Witaj ${playerName.toUpperCase()}, ja jestem MASTABLASTA. Gramy do 5.
                           na dole ekranu wybierz swoją broń. Zobaczymy czy mnie pokonasz.`
 
-let compResultImg =  document.createElement("img")
-compResultImg.classList.add("computer-contener__item")
-compImagesSection.append(compResultImg)
 
 const gameStart = (e) => {
   let compLottery = Math.floor(Math.random() * (max - min)) + min;
@@ -54,6 +55,10 @@ const gameStart = (e) => {
   });
 };
 
+let compResultImg =  document.createElement("img")
+compResultImg.classList.add("computer-contener__item")
+compImagesSection.append(compResultImg)
+
 const generateLottery = (compLottery) => {
   images.forEach((img, index) => {
     if (compLottery === index) {
@@ -77,7 +82,6 @@ const humanPalyerImage = (button) =>{
 }
 
 const resultDisplay = (index, compLottery) =>{
-
     if(index === compLottery){
         console.log('remis')
     }
@@ -111,18 +115,16 @@ const resultDisplay = (index, compLottery) =>{
     if(compResult !== 0){
         compResultDisplay.textContent = parseInt(compResult)
     }
-    if(compResult === 2){
+    if(compResult === 2 || playerResult === 2){
+        compResult === 2 ?  resultPopupInfo.textContent = "PRZEGRAŁEŚ !!!" : resultPopupInfo.textContent = "WYGRAŁEŚ !!!"
         compResult = 0
         playerResult = 0
-        playerResultDisplay.textContent = 0
-        compResultDisplay.textContent = 0
-    }
-    if(playerResult === 2){
-        playerResult = 0
-        compResult = 0
-        playerResultDisplay.textContent = 0
-        compResultDisplay.textContent = 0
-    }
+        setTimeout(() => {
+            playerResultDisplay.textContent = 0
+            compResultDisplay.textContent = 0
+            resultPopup.classList.add("open")
+        }, 500);
+        }
     
     localStorage.setItem("playerResult", playerResult)
     localStorage.setItem("compResult", compResult)
@@ -142,3 +144,8 @@ const resultDisplay = (index, compLottery) =>{
     }
    
 buttonsArea.addEventListener("click", gameStart);
+resultPopup.addEventListener("click", (e) =>{
+    if(e.target.matches(".result-popup")){
+        resultPopup.classList.remove("open")
+    }
+})
